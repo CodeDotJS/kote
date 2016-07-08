@@ -1,0 +1,50 @@
+{
+  "name": "kote",
+  "version": "1.0.0",
+  "description": "Daily injection of wisdom, fun and love",
+  "main": "cli.js",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "got": "^6.3.0",
+    "chalk": "^1.1.3",
+    "update-notifier": "^1.0.2",
+    "ora": "^0.2.1",
+    "log-update": "1.0.2",
+    "boxen": "^0.6.0",
+    "execa": "^0.4.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "xo": "*"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeDotJS/kote.git"
+  },
+  "keywords": [
+    "kote",
+    "quote",
+    "day",
+    "daily",
+    "injection",
+    "quotes",
+    "forbes",
+    "goodreads",
+    "brainyquotes",
+    "romantic",
+    "nature",
+    "art",
+    "funny",
+    "eduro",
+    "best"
+  ],
+  "author": "Rishi Giri <rushforlinux@gmail.com> (http://rishigiri.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodeDotJS/kote/issues"
+  },
+  "homepage": "https://github.com/CodeDotJS/kote#readme"
+}
