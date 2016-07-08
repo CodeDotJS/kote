@@ -1,5 +1,7 @@
 <h1 align="center">
-	<br>
+  <img width="100" src="media/K_LOGO.jpg" alt="nist">
+  <br>
+  <br>
 	<img width="560" src="media/kote.gif" alt="nist">
 	<br>
 	<br>
@@ -40,6 +42,12 @@ $ sudo npm install --global kote
   -e, --extra            extra information
   -v, --version          display kote's version
 ```
+
+## Credits
+
+__`Quotes`__ : __`GoodReads`__, __`Eduro`__, __`BrainyQuotes`__
+
+__`LOGO`__   : __[`Vibhor Gupta`](https://github.com/vibhorvk28)__
 
 ## License
 
