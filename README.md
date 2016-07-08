@@ -5,7 +5,7 @@
 	<br>
 </h1>
 
-> :tada: Daily injection of wisdom, fun and love throughs command line
+> :tada: Daily injection of wisdom, fun and love through command line
 
 [![Build Status](https://travis-ci.org/CodeDotJS/kote.svg?branch=master)](https://travis-ci.org/CodeDotJS/kote)
 
