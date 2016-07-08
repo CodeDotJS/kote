@@ -1,7 +1,7 @@
 {
   "name": "kote",
   "version": "1.0.0",
-  "description": "Daily injection of wisdom, fun and love",
+  "description": "Daily injection of wisdom, fun and love throughs command line",
   "main": "cli.js",
   "dependencies": {
     "cheerio": "^0.20.0",
