@@ -2,28 +2,24 @@
   "name": "kote",
   "version": "1.0.0",
   "description": "Daily injection of wisdom, fun and love through command line",
-  "main": "cli.js",
-  "dependencies": {
-    "cheerio": "^0.20.0",
-    "got": "^6.3.0",
-    "chalk": "^1.1.3",
-    "update-notifier": "^1.0.2",
-    "ora": "^0.2.1",
-    "log-update": "1.0.2",
-    "boxen": "^0.6.0",
-    "execa": "^0.4.0"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codedotjs/kote.git"
   },
-  "devDependencies": {
-    "ava": "*",
-    "xo": "*"
+  "author": "Rishi Giri <rushforlinux@gmail.com> (rishigiri.com)",
+  "bin": {
+    "kote": "cli.js"
+  },
+  "engines": {
+    "node": ">=4"
   },
   "scripts": {
     "test": "xo && ava"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CodeDotJS/kote.git"
-  },
+  "files": [
+    "cli.js"
+  ],
   "keywords": [
     "kote",
     "quote",
@@ -41,10 +37,23 @@
     "eduro",
     "best"
   ],
-  "author": "Rishi Giri <rushforlinux@gmail.com> (http://rishigiri.com)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CodeDotJS/kote/issues"
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "got": "^6.3.0",
+    "chalk": "^1.1.3",
+    "update-notifier": "^1.0.2",
+    "ora": "^0.2.1",
+    "log-update": "1.0.2",
+    "boxen": "^0.6.0",
+    "execa": "^0.4.0"
   },
-  "homepage": "https://github.com/CodeDotJS/kote#readme"
+  "devDependencies": {
+    "ava": "*",
+    "xo": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/codedotjs/kote/issues"
+  },
+  "homepage": "https://github.com/codedotjs/kote#readme",
+  "main": "cli.js"
 }
