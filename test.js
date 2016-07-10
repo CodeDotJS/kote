@@ -7,7 +7,7 @@ test.cb(t => {
 		cwd: __dirname
 	}, (err, stdout) => {
 		t.ifError(err);
-		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “Each of us has a unique part to play in the healing of the world.”\n\n\u001b[?25h');
+		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “I\'m tired of all this nonsense about beauty being only skin-deep. That\'s deep enough. What do you want, an adorable pancreas?”\n\n\u001b[?25h');
 		t.end();
 	});
 });
@@ -17,7 +17,7 @@ test.cb('brainy', t => {
 		cwd: __dirname
 	}, (err, stdout) => {
 		t.ifError(err);
-		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “Hope is but the dream of those who wake.”\n\n\u001b[?25h');
+		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “I think and think for months and years. Ninety-nine times, the conclusion is false. The hundredth time I am right.”\n\n\u001b[?25h');
 		t.end();
 	});
 });
@@ -27,7 +27,7 @@ test.cb('eduro', t => {
 		cwd: __dirname
 	}, (err, stdout) => {
 		t.ifError(err);
-		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “See the invisible. Believe the incredible. Attempt the impossible!”\n\n\u001b[?25h');
+		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “For every minute you are angry you lose sixty seconds of happiness.”\n\n\u001b[?25h');
 		t.end();
 	});
 });
@@ -37,7 +37,7 @@ test.cb('love', t => {
 		cwd: __dirname
 	}, (err, stdout) => {
 		t.ifError(err);
-		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “O, thou art fairer than the evening air clad in the beauty of a thousand stars.”\n\n\u001b[?25h');
+		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “People protect what they love.”\n\n\u001b[?25h');
 		t.end();
 	});
 });
@@ -47,7 +47,7 @@ test.cb('art', t => {
 		cwd: __dirname
 	}, (err, stdout) => {
 		t.ifError(err);
-		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “My love of fine art increased - the more of it I saw, the more of it I wanted to see.”\n\n\u001b[?25h');
+		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “Minimal art went nowhere.”\n\n\u001b[?25h');
 		t.end();
 	});
 });
@@ -57,7 +57,7 @@ test.cb('nature', t => {
 		cwd: __dirname
 	}, (err, stdout) => {
 		t.ifError(err);
-		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “When I have a terrible need of - shall I say the word - religion. Then I go out and paint the stars.”\n\n\u001b[?25h');
+		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “But friendship is the breathing rose, with sweets in every fold.”\n\n\u001b[?25h');
 		t.end();
 	});
 });
@@ -67,7 +67,7 @@ test.cb('funny', t => {
 		cwd: __dirname
 	}, (err, stdout) => {
 		t.ifError(err);
-		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “I, Joan Crawford, I believe in the dollar. Everything I earn, I spend.”\n\n\u001b[?25h');
+		t.true(stdout === '\u001b[?25l\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› “Marriage is not just spiritual communion, it is also remembering to take out the trash.”\n\n\u001b[?25h');
 		t.end();
 	});
 });
