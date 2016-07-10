@@ -2,6 +2,7 @@
 
 'use strict';
 
+const dns = require('dns');
 const got = require('got');
 const cheerio = require('cheerio');
 const chalk = require('chalk');
@@ -47,9 +48,15 @@ if (arg === '-s' || arg === '--source') {
 }
 
 if (arg === '-g' || arg === '--goodreads') {
+	dns.lookup('goodreads.com', err => {
+		if (err && err.code === 'ENOTFOUND') {
+			logUpdate(`\n${chalk.bold.red('› ')}${chalk.dim('Please check your internet connection')}\n`);
+			process.exit(1);
+		}
+	});
 	const url = 'https://www.goodreads.com/quotes_of_the_day';
 	logUpdate();
-	spinner.text = `Fetching ${chalk.bold('Quote of the day')}`;
+	spinner.text = `${chalk.dim('Fetching')} ${chalk.bold('Quote of the day')}`;
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
@@ -63,9 +70,15 @@ if (arg === '-g' || arg === '--goodreads') {
 }
 
 if (arg === '-b' || arg === '--brainyquote') {
+	dns.lookup('brainyquote.com', err => {
+		if (err && err.code === 'ENOTFOUND') {
+			logUpdate(`\n${chalk.bold.red('› ')}${chalk.dim('Please check your internet connection')}\n`);
+			process.exit(1);
+		}
+	});
 	const url = 'http://www.brainyquote.com/quotes_of_the_day.html';
 	logUpdate();
-	spinner.text = `Fetching ${chalk.bold('Quote of the day')}`;
+	spinner.text = `${chalk.dim('Fetching')} ${chalk.bold('Quote of the day')}`;
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
@@ -78,9 +91,15 @@ if (arg === '-b' || arg === '--brainyquote') {
 }
 
 if (arg === '-e' || arg === '--eduro') {
+	dns.lookup('eduro.com', err => {
+		if (err && err.code === 'ENOTFOUND') {
+			logUpdate(`\n${chalk.bold.red('› ')}${chalk.dim('Please check your internet connection')}\n`);
+			process.exit(1);
+		}
+	});
 	const url = 'http://www.eduro.com/';
 	logUpdate();
-	spinner.text = `Fetching ${chalk.bold('Quote of the day')}`;
+	spinner.text = `${chalk.dim('Fetching')} ${chalk.bold('Quote of the day')}`;
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
@@ -93,9 +112,15 @@ if (arg === '-e' || arg === '--eduro') {
 }
 
 if (arg === '-l' || arg === '--love') {
+	dns.lookup('brainyquote.com', err => {
+		if (err && err.code === 'ENOTFOUND') {
+			logUpdate(`\n${chalk.bold.red('› ')}${chalk.dim('Please check your internet connection')}\n`);
+			process.exit(1);
+		}
+	});
 	const url = 'http://www.brainyquote.com/quotes_of_the_day.html';
 	logUpdate();
-	spinner.text = `Fetching ${chalk.bold('Love quote of the day')}`;
+	spinner.text = `${chalk.dim('Fetching')} ${chalk.bold('Love quote of the day')}`;
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
@@ -108,9 +133,15 @@ if (arg === '-l' || arg === '--love') {
 }
 
 if (arg === '-a' || arg === '--art') {
+	dns.lookup('brainyquote.com', err => {
+		if (err && err.code === 'ENOTFOUND') {
+			logUpdate(`\n${chalk.bold.red('› ')}${chalk.dim('Please check your internet connection')}\n`);
+			process.exit(1);
+		}
+	});
 	const url = 'http://www.brainyquote.com/quotes_of_the_day.html';
 	logUpdate();
-	spinner.text = `Fetching ${chalk.bold('Art quote of the day')}`;
+	spinner.text = `${chalk.dim('Fetching')} ${chalk.bold('Art quote of the day')}`;
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
@@ -123,9 +154,15 @@ if (arg === '-a' || arg === '--art') {
 }
 
 if (arg === '-n' || arg === '--nature') {
+	dns.lookup('brainyquote.com', err => {
+		if (err && err.code === 'ENOTFOUND') {
+			logUpdate(`\n${chalk.bold.red('› ')}${chalk.dim('Please check your internet connection')}\n`);
+			process.exit(1);
+		}
+	});
 	const url = 'http://www.brainyquote.com/quotes_of_the_day.html';
 	logUpdate();
-	spinner.text = `Fetching ${chalk.bold('Nature quote of the day')}`;
+	spinner.text = `${chalk.dim('Fetching')} ${chalk.bold('Nature quote of the day')}`;
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
@@ -138,9 +175,15 @@ if (arg === '-n' || arg === '--nature') {
 }
 
 if (arg === '-f' || arg === '--funny') {
+	dns.lookup('brainyquote.com', err => {
+		if (err && err.code === 'ENOTFOUND') {
+			logUpdate(`\n${chalk.bold.red('› ')}${chalk.dim('Please check your internet connection')}\n`);
+			process.exit(1);
+		}
+	});
 	const url = 'http://www.brainyquote.com/quotes_of_the_day.html';
 	logUpdate();
-	spinner.text = `Fetching ${chalk.bold('Funny quote of the day')}`;
+	spinner.text = `${chalk.dim('Fetching')} ${chalk.bold('Funny quote of the day')}`;
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
