@@ -1,8 +1,8 @@
 <h1 align="center">
-  <img width="100" src="media/K_LOGO.jpg" alt="nist">
+  <img width="100" src="https://raw.githubusercontent.com/CodeDotJS/kote/master/media/K_LOGO.jpg" alt="nist">
   <br>
   <br>
-	<img width="560" src="media/kote.gif" alt="nist">
+	<img width="560" src="https://raw.githubusercontent.com/CodeDotJS/kote/master/media/kote.gif" alt="nist">
 	<br>
 	<br>
 </h1>
@@ -28,16 +28,16 @@ $ sudo npm install --global kote
 ```
  Usage: kote <command>
 
- Command: 
-  -g, --goodreads        fetch quote of the day from goodread       
-  -b, --brainyquote      fetch quote of the day from brainyquotes   
-  -e, --eduro            quote of the day by eduro                  
-  -l, --love             romantic quote of the day                  
-  -a, --art              art quote of the day                       
-  -n, --nature           nature quote of the day                    
-  -f, --funny            funny quote of the day                     
+ Command:
+  -g, --goodreads        fetch quote of the day from goodread
+  -b, --brainyquote      fetch quote of the day from brainyquotes
+  -e, --eduro            quote of the day by eduro
+  -l, --love             romantic quote of the day
+  -a, --art              art quote of the day
+  -n, --nature           nature quote of the day
+  -f, --funny            funny quote of the day
 
- Kote: 
+ Kote:
   -h, --help             display help
   -e, --extra            extra information
   -v, --version          display kote's version
