@@ -13,12 +13,10 @@
 
 ## Install
 
-- `Ensure you've` __[`NodeJS`](http://nodejs.org)__ `version >= 4 installed. Then run the following :`
-
 ```sh
 $ npm install --global kote
 ```
-__OR__
+__`OR`__
 ```sh
 $ sudo npm install --global kote
 ```
@@ -29,17 +27,19 @@ $ sudo npm install --global kote
  Usage: kote <command>
 
  Command:
-  -g, --goodreads        fetch quote of the day from goodread
-  -b, --brainyquote      fetch quote of the day from brainyquotes
-  -e, --eduro            quote of the day by eduro
-  -l, --love             romantic quote of the day
-  -a, --art              art quote of the day
-  -n, --nature           nature quote of the day
-  -f, --funny            funny quote of the day
+  -g, --goodreads        Quote of the Day : GoodReads
+  -b, --brainyquote      Quote of the Day : BrainyQuotes
+  -e, --eduro            Quote of the Day : Eduro
+
+ Extra :
+  -l, --love             Quote of the Day : Love
+  -a, --art              Quote of the Day : Art
+  -n, --nature           Quote of the Day : Nature
+  -f, --funny            Quote of the Day : Funny
 
  Kote:
   -h, --help             display help
-  -e, --extra            extra information
+  -s, --soruce           extra information
   -v, --version          display kote's version
 ```
 
