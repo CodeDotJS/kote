@@ -23,7 +23,6 @@ const showMessage = () => {
 	logUpdate();
 	spinner.text = `${chalk.dim('Fetching')} ${chalk.bold('Quote of the day')}`;
 	spinner.start();
-	return;
 };
 
 const showError = () => {
@@ -36,7 +35,6 @@ const showQuotes = arg => {
 	console.log(`${pre}${arg}`);
 	console.log();
 	spinner.stop();
-	return;
 };
 
 const quoteOftheDay = () => {
@@ -111,7 +109,7 @@ if (arg === '-b' || arg === '--brainyquote') {
 	showMessage();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
-		const quote = $('.bqQuoteLink').eq(0).text().trim();
+		const quote = $('.b-qt:link').eq(0).text().trim();
 		showQuotes(`"${quote}"`);
 	}).catch(err => {
 		if (err) {
@@ -148,7 +146,7 @@ if (arg === '-l' || arg === '--love') {
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
-		const quote = $('.bqQuoteLink').eq(1).text().trim();
+		const quote = $('.b-qt:link').eq(1).text().trim();
 		showQuotes(`"${quote}"`);
 	}).catch(err => {
 		if (err) {
@@ -165,7 +163,7 @@ if (arg === '-a' || arg === '--art') {
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
-		const quote = $('.bqQuoteLink').eq(2).text().trim();
+		const quote = $('.b-qt:link').eq(2).text().trim();
 		showQuotes(`"${quote}"`);
 	}).catch(err => {
 		if (err) {
@@ -182,7 +180,7 @@ if (arg === '-n' || arg === '--nature') {
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
-		const quote = $('.bqQuoteLink').eq(3).text().trim();
+		const quote = $('.b-qt:link').eq(3).text().trim();
 		showQuotes(`"${quote}"`);
 	}).catch(err => {
 		if (err) {
@@ -199,7 +197,7 @@ if (arg === '-f' || arg === '--funny') {
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
-		const quote = $('.bqQuoteLink').eq(4).text().trim();
+		const quote = $('.b-qt:link').eq(4).text().trim();
 		showQuotes(`"${quote}"`);
 	}).catch(err => {
 		if (err) {
