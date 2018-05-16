@@ -48,8 +48,8 @@
     "execa": "^0.4.0"
   },
   "devDependencies": {
-    "ava": "*",
-    "xo": "*"
+    "ava": "^0.15.2",
+    "xo": "^0.16.0"
   },
   "bugs": {
     "url": "https://github.com/codedotjs/kote/issues"
