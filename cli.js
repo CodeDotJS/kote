@@ -50,14 +50,13 @@ const dnsBrainy = () => {
 	});
 };
 
-const args = ['-g', '--goodreads', '-b', '--brainyquote', '-e', '--eduro', '-l', '--love', '-a', '--art', '-n', '--nature', '-f', '--funny', '-v', '--version', '-s', '--source'];
+const args = ['-b', '--brainyquote', '-e', '--eduro', '-l', '--love', '-a', '--art', '-n', '--nature', '-f', '--funny', '-v', '--version', '-s', '--source'];
 
 if (!arg || arg === '-h' || arg === '--help' || args.indexOf(arg) === -1) {
 	console.log(`
  ${chalk.cyan('Usage:')} kote <command>
 
  ${chalk.cyan('Command: ')}
-  -g, --goodreads        ${quoteOftheDay()} : GoodReads
   -b, --brainyquote      ${quoteOftheDay()} : BrainyQuotes
   -e, --eduro            ${quoteOftheDay()} : Eduro
 
@@ -76,31 +75,9 @@ if (!arg || arg === '-h' || arg === '--help' || args.indexOf(arg) === -1) {
 
 if (arg === '-s' || arg === '--source') {
 	console.log(`
-  ${chalk.bold.green('⚫')} ${chalk.bold('GoodReads')}
   ${chalk.bold.cyan('⚫')} ${chalk.bold('BrainyQuotes')}
   ${chalk.bold.red('⚫')} ${chalk.bold('Eduro')}
 		`);
-}
-
-if (arg === '-g' || arg === '--goodreads') {
-	dns.lookup('goodreads.com', err => {
-		if (err) {
-			logUpdate(`\n${chalk.bold.red('› ')}${chalk.dim('Please check your internet connection')}\n`);
-			process.exit(1);
-		}
-	});
-	const url = 'https://www.goodreads.com/quotes_of_the_day';
-	showMessage();
-	got(url).then(res => {
-		const $ = cheerio.load(res.body);
-		let quote = $('.quoteText').text().trim();
-		quote = quote.split('//<!')[0].trim().split('―')[0].trim();
-		showQuotes(quote);
-	}).catch(err => {
-		if (err) {
-			showError();
-		}
-	});
 }
 
 if (arg === '-b' || arg === '--brainyquote') {
