@@ -17,7 +17,8 @@ updateNotifier({pkg}).notify();
 const spinner = ora();
 
 const arg = process.argv[2];
-const pre = `${chalk.bold.cyan('›')} `;
+const quotePre = `${chalk.bold.cyan('›')} `;
+const authorPre = `${chalk.bold.cyan('\t--')} `;
 
 const showMessage = () => {
 	logUpdate();
@@ -26,13 +27,20 @@ const showMessage = () => {
 };
 
 const showError = () => {
-	logUpdate(`\n${pre} ${chalk.dim('Could not find the Quote. Please try again!')}\n`);
+	logUpdate(`\n${quotePre} ${chalk.dim('Could not find the Quote. Please try again!')}\n`);
 	process.exit(1);
 };
 
 const showQuotes = arg => {
 	logUpdate();
-	console.log(`${pre}${arg}`);
+	console.log(`${quotePre}${arg}`);
+	console.log();
+	spinner.stop();
+};
+
+const showAuthor = arg => {
+	logUpdate();
+	console.log(`${authorPre}${arg}`);
 	console.log();
 	spinner.stop();
 };
@@ -86,8 +94,10 @@ if (arg === '-b' || arg === '--brainyquote') {
 	showMessage();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
+		const author = $('.bq-aut:link').eq(0).text();
 		const quote = $('.b-qt:link').eq(0).text().trim();
 		showQuotes(`"${quote}"`);
+		showAuthor(`${author}`);
 	}).catch(err => {
 		if (err) {
 			showError();
@@ -184,5 +194,5 @@ if (arg === '-f' || arg === '--funny') {
 }
 
 if (arg === '--version' || arg === '-v') {
-	console.log(`\n${pre}Current kote version:`, require('./package.json').version, `\n`);
+	console.log(`\n${quotePre}Current kote version:`, require('./package.json').version, `\n`);
 }
