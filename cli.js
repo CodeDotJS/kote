@@ -115,8 +115,9 @@ if (arg === '-e' || arg === '--eduro') {
 	showMessage();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
+		const author = $('.article dailyquote p.author').eq(0).text().trim().substring(2);
 		const quote = $('.article dailyquote p').eq(0).text().trim();
-		showQuotes(`"${quote}"`);
+		showQuotes(`"${quote}"`, `${author}`);
 	}).catch(err => {
 		if (err) {
 			showError();
