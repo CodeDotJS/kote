@@ -35,7 +35,7 @@ const showError = () => {
 const showQuotes = (arg, optional) => {
 	logUpdate();
 	console.log(`${quotePre}${arg}`);
-	if (optionalArg) {
+	if (optionalArg === '-u' || optionalArg === '--author') {
 		console.log(`${authorPre}${optional}`);
 	}
 	console.log();
