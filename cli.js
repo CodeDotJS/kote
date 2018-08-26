@@ -17,6 +17,7 @@ updateNotifier({pkg}).notify();
 const spinner = ora();
 
 const arg = process.argv[2];
+const optionalArg = process.argv[3];
 const quotePre = `${chalk.bold.cyan('›')} `;
 const authorPre = `${chalk.bold.cyan('\t--')} `;
 
@@ -31,16 +32,12 @@ const showError = () => {
 	process.exit(1);
 };
 
-const showQuotes = arg => {
+const showQuotes = (arg, optional) => {
 	logUpdate();
 	console.log(`${quotePre}${arg}`);
-	console.log();
-	spinner.stop();
-};
-
-const showAuthor = arg => {
-	logUpdate();
-	console.log(`${authorPre}${arg}`);
+	if (optionalArg) {
+		console.log(`${authorPre}${optional}`);
+	}
 	console.log();
 	spinner.stop();
 };
@@ -58,15 +55,18 @@ const dnsBrainy = () => {
 	});
 };
 
-const args = ['-b', '--brainyquote', '-e', '--eduro', '-l', '--love', '-a', '--art', '-n', '--nature', '-f', '--funny', '-v', '--version', '-s', '--source'];
+const args = ['-b', '--brainyquote', '-e', '--eduro', '-l', '--love', '-a', '--art', '-n', '--nature', '-f', '--funny', '-v', '--version', '-s', '--source', '-u', '--author'];
 
 if (!arg || arg === '-h' || arg === '--help' || args.indexOf(arg) === -1) {
 	console.log(`
- ${chalk.cyan('Usage:')} kote <command>
+ ${chalk.cyan('Usage:')} kote <command> <option>
 
  ${chalk.cyan('Command: ')}
   -b, --brainyquote      ${quoteOftheDay()} : BrainyQuotes
   -e, --eduro            ${quoteOftheDay()} : Eduro
+
+ ${chalk.cyan('Options: ')}
+  -u, --author           ${quoteOftheDay()} : Show Author
 
  ${chalk.cyan('Extra :')}
   -l, --love             ${quoteOftheDay()} : Love
@@ -96,8 +96,7 @@ if (arg === '-b' || arg === '--brainyquote') {
 		const $ = cheerio.load(res.body);
 		const author = $('.bq-aut:link').eq(0).text();
 		const quote = $('.b-qt:link').eq(0).text().trim();
-		showQuotes(`"${quote}"`);
-		showAuthor(`${author}`);
+		showQuotes(`"${quote}"`, `${author}`);
 	}).catch(err => {
 		if (err) {
 			showError();
