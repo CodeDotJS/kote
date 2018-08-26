@@ -94,7 +94,7 @@ if (arg === '-b' || arg === '--brainyquote') {
 	showMessage();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
-		const author = $('.bq-aut:link').eq(0).text();
+		const author = $('.bq-aut:link').eq(0).text().trim();
 		const quote = $('.b-qt:link').eq(0).text().trim();
 		showQuotes(`"${quote}"`, `${author}`);
 	}).catch(err => {
