@@ -17,7 +17,9 @@ updateNotifier({pkg}).notify();
 const spinner = ora();
 
 const arg = process.argv[2];
-const pre = `${chalk.bold.cyan('›')} `;
+const optionalArg = process.argv[3];
+const quotePre = `${chalk.bold.cyan('›')} `;
+const authorPre = `${chalk.bold.cyan('\t--')} `;
 
 const showMessage = () => {
 	logUpdate();
@@ -26,13 +28,16 @@ const showMessage = () => {
 };
 
 const showError = () => {
-	logUpdate(`\n${pre} ${chalk.dim('Could not find the Quote. Please try again!')}\n`);
+	logUpdate(`\n${quotePre} ${chalk.dim('Could not find the Quote. Please try again!')}\n`);
 	process.exit(1);
 };
 
-const showQuotes = arg => {
+const showQuotes = (arg, optional) => {
 	logUpdate();
-	console.log(`${pre}${arg}`);
+	console.log(`${quotePre}${arg}`);
+	if (optionalArg === '-u' || optionalArg === '--author') {
+		console.log(`${authorPre}${optional}`);
+	}
 	console.log();
 	spinner.stop();
 };
@@ -50,15 +55,18 @@ const dnsBrainy = () => {
 	});
 };
 
-const args = ['-b', '--brainyquote', '-e', '--eduro', '-l', '--love', '-a', '--art', '-n', '--nature', '-f', '--funny', '-v', '--version', '-s', '--source'];
+const args = ['-b', '--brainyquote', '-e', '--eduro', '-l', '--love', '-a', '--art', '-n', '--nature', '-f', '--funny', '-v', '--version', '-s', '--source', '-u', '--author'];
 
 if (!arg || arg === '-h' || arg === '--help' || args.indexOf(arg) === -1) {
 	console.log(`
- ${chalk.cyan('Usage:')} kote <command>
+ ${chalk.cyan('Usage:')} kote <command> <option>
 
  ${chalk.cyan('Command: ')}
   -b, --brainyquote      ${quoteOftheDay()} : BrainyQuotes
   -e, --eduro            ${quoteOftheDay()} : Eduro
+
+ ${chalk.cyan('Options: ')}
+  -u, --author           ${quoteOftheDay()} : Show Author
 
  ${chalk.cyan('Extra :')}
   -l, --love             ${quoteOftheDay()} : Love
@@ -86,8 +94,9 @@ if (arg === '-b' || arg === '--brainyquote') {
 	showMessage();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
+		const author = $('.bq-aut:link').eq(0).text().trim();
 		const quote = $('.b-qt:link').eq(0).text().trim();
-		showQuotes(`"${quote}"`);
+		showQuotes(`"${quote}"`, `${author}`);
 	}).catch(err => {
 		if (err) {
 			showError();
@@ -106,8 +115,9 @@ if (arg === '-e' || arg === '--eduro') {
 	showMessage();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
+		const author = $('.article dailyquote p.author').eq(0).text().trim().substring(2);
 		const quote = $('.article dailyquote p').eq(0).text().trim();
-		showQuotes(`"${quote}"`);
+		showQuotes(`"${quote}"`, `${author}`);
 	}).catch(err => {
 		if (err) {
 			showError();
@@ -184,5 +194,5 @@ if (arg === '-f' || arg === '--funny') {
 }
 
 if (arg === '--version' || arg === '-v') {
-	console.log(`\n${pre}Current kote version:`, require('./package.json').version, `\n`);
+	console.log(`\n${quotePre}Current kote version:`, require('./package.json').version, `\n`);
 }
