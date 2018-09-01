@@ -44,7 +44,10 @@ $ sudo npm install --global kote
   -n, --nature           Quote of the Day : Nature
   -f, --funny            Quote of the Day : Funny
 
- Kote:
+ Option:
+  --author               Display author's name
+
+ Extra:
   -h, --help             display help
   -s, --soruce           extra information
   -v, --version          display kote's version
