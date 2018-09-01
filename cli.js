@@ -19,7 +19,7 @@ const spinner = ora();
 const arg = process.argv[2];
 const optionalArg = process.argv[3];
 const quotePre = `${chalk.bold.cyan('›')} `;
-const authorPre = `${chalk.bold.cyan('\t--')} `;
+const authorPre = `${chalk.bold.cyan('\n~ ')} `;
 
 const showMessage = () => {
 	logUpdate();
@@ -55,7 +55,7 @@ const dnsBrainy = () => {
 	});
 };
 
-const args = ['-b', '--brainyquote', '-e', '--eduro', '-l', '--love', '-a', '--art', '-n', '--nature', '-f', '--funny', '-v', '--version', '-s', '--source', '-u', '--author'];
+const args = ['-b', '--brainyquote', '-e', '--eduro', '-l', '--love', '-a', '--art', '-n', '--nature', '-f', '--funny', '-v', '--version', '-s', '--source', '--author'];
 
 if (!arg || arg === '-h' || arg === '--help' || args.indexOf(arg) === -1) {
 	console.log(`
@@ -65,14 +65,14 @@ if (!arg || arg === '-h' || arg === '--help' || args.indexOf(arg) === -1) {
   -b, --brainyquote      ${quoteOftheDay()} : BrainyQuotes
   -e, --eduro            ${quoteOftheDay()} : Eduro
 
- ${chalk.cyan('Options: ')}
-  -u, --author           ${quoteOftheDay()} : Show Author
-
  ${chalk.cyan('Extra :')}
   -l, --love             ${quoteOftheDay()} : Love
   -a, --art              ${quoteOftheDay()} : Art
   -n, --nature           ${quoteOftheDay()} : Nature
   -f, --funny            ${quoteOftheDay()} : Funny
+
+ ${chalk.cyan('Options: ')}
+  --author               Display Author's name
 
  ${chalk.cyan('Kote: ')}
   -h, --help             display help
@@ -133,8 +133,9 @@ if (arg === '-l' || arg === '--love') {
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
+		const author = $('.bq-aut:link').eq(1).text().trim();
 		const quote = $('.b-qt:link').eq(1).text().trim();
-		showQuotes(`"${quote}"`);
+		showQuotes(`"${quote}"`, `${author}`);
 	}).catch(err => {
 		if (err) {
 			showError();
@@ -150,8 +151,9 @@ if (arg === '-a' || arg === '--art') {
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
+		const author = $('.bq-aut:link').eq(2).text().trim();
 		const quote = $('.b-qt:link').eq(2).text().trim();
-		showQuotes(`"${quote}"`);
+		showQuotes(`"${quote}"`, `${author}`);
 	}).catch(err => {
 		if (err) {
 			showError();
@@ -167,8 +169,9 @@ if (arg === '-n' || arg === '--nature') {
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
+		const author = $('.bq-aut:link').eq(3).text().trim();
 		const quote = $('.b-qt:link').eq(3).text().trim();
-		showQuotes(`"${quote}"`);
+		showQuotes(`"${quote}"`, `${author}`);
 	}).catch(err => {
 		if (err) {
 			showError();
@@ -184,8 +187,9 @@ if (arg === '-f' || arg === '--funny') {
 	spinner.start();
 	got(url).then(res => {
 		const $ = cheerio.load(res.body);
+		const author = $('.bq-aut:link').eq(4).text().trim();
 		const quote = $('.b-qt:link').eq(4).text().trim();
-		showQuotes(`"${quote}"`);
+		showQuotes(`"${quote}"`, `${author}`);
 	}).catch(err => {
 		if (err) {
 			showError();
